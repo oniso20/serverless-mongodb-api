@@ -32,7 +32,9 @@ provider:
     SERVERLESS_REGION: ${self:provider.region}
     SERVERLESS_STAGE: ${self:provider.stage}
     SERVERLESS_SERVICE: ${self:service}
+    # replace with your connection string, preferably through SSM
     DB_CONNECTION_STR: undefined
+
 functions:
   example:
     handler: src/lambdas/example.handler

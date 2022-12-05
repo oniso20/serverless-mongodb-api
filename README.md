@@ -7,9 +7,12 @@ This project is set up to make it easy to start new projects with lambda functio
 ### Setup
 
 - Ensure AWS credentials are installed locally
+- Run `npm install`
 - Open `serverless.yml` and change the `service` property to match the name of your project
 
 ### Deployment
+
+The project deploys an API lambda function which serves any API route attached in src/api/v1/index.js. The only dependency outside of AWS is MongoDB, which you will need a connection string for (see Environment).
 
 The default stage is `dev`.
 
@@ -25,7 +28,7 @@ Add new environment variables by configuring them within AWS Parameter Store (wi
 provider:
   ...
   environment:
-    DB_PASSWORD: ${ssm:${self:provider.stage}-db-pass~true}
+    DB_PASSWORD: ${ssm:${self:provider.stage}-db-pass}
 ```
 
 ### Running functions
@@ -48,8 +51,13 @@ Run the api locally with `npm start`
 
 Add new models to the API by:
 
-- Adding a new model file to the `src/model` folder
-- Adding a the model to an API route in `src/api/v1/index`
+Defining your model is the bulk of the work when using this project. Simply:
+
+- Create a new model file in `src/model`
+- Import that model to `src/model/index.js` as seen with the other models
+- Import the model in `src/api/v1/index.js` and attach it to the express router, as seen with the other models
+
+The models are defined with the npm package mongoose. Check documentation on mongoose to understand how to define new schemas.
 
 ### Altering API behavior
 
@@ -57,4 +65,4 @@ Each model has the same behavior in the API, making it easy to know how each mod
 
 ## Using the API
 
-The API supports GET, PUT, POST, and DELETE requests for any document by an authorized user. Validation is done via the Mongoose models in `src/model`.
+The API supports GET, PUT, POST, and DELETE requests for any document by an authorized user. Validation is done via the mongoose models in `src/model`.
