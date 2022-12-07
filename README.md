@@ -13,6 +13,10 @@ This project is set up to make it easy to start new projects with lambda functio
 
 The default stage is `dev`.
 
+`npm install`
+
+`npx nodemon -L --exec serverless offline start --httpPort 4200 --noAuth`
+
 `npm run deploy` will deploy the project to a development stage within AWS.
 
 `npm run deploy -s prod` will deploy the services to a new stage called `prod`.
