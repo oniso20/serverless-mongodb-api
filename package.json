@@ -7,7 +7,7 @@
     "node": ">=16.14"
   },
   "scripts": {
-    "start": "AWS_PROFILE=default nodemon -L --exec serverless offline start --httpPort 4200 --noAuth",
+    "start:backend": "AWS_PROFILE=default nodemon -L --exec serverless offline start --httpPort 4200 --noAuth",
     "deploy": "sls deploy",
     "test": "jest"
   },
