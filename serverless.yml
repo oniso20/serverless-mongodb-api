@@ -33,6 +33,7 @@ provider:
     SERVERLESS_STAGE: ${self:provider.stage}
     SERVERLESS_SERVICE: ${self:service}
     DB_CONNECTION_STR: ${ssm:${self:provider.stage}-db-pass}
+
 functions:
   example:
     handler: src/lambdas/example.handler
