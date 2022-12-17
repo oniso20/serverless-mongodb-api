@@ -1,4 +1,5 @@
 const mongooseValidation = (err, req, res, next) => {
+  console.log('running error handling')
   if (err.name === 'ValidationError') {
     return res.status(400).send(err)
   } else {

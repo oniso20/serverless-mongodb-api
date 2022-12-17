@@ -7,7 +7,7 @@
     "node": ">=16.14"
   },
   "scripts": {
-    "start": "AWS_PROFILE=default nodemon -L --exec serverless offline start --httpPort 4200 --noAuth",
+    "start:backend": "AWS_PROFILE=default nodemon -L --exec serverless offline start --httpPort 4200 --noAuth",
     "deploy": "sls deploy",
     "test": "jest"
   },
@@ -26,6 +26,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.7.5",
     "mongoose-timestamp": "^0.6.0",
+    "nodemon": "^2.0.20",
     "serverless-http": "^3.1.0"
   }
 }
